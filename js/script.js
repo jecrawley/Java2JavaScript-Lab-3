@@ -31,7 +31,22 @@ function showRemove() {
 
 function showLookup() {
   var lookup = prompt("Enter name to lookup");
-  display.innerHTML = PhoneBook[name];
+  var lookupNum = "Name not found";
+  if (PhoneBook[lookup] !== undefined) {
+      lookupNum = PhoneBook[lookup];
+  }
+  display.innerHTML = lookupNum;
 };
+
+function reverseLookup () {
+    var lookup = prompt("Enter a number to lookup");
+    var lookupName = "Number not found";
+    for (var name in PhoneBook) {
+        if (PhoneBook[name] === lookup) {
+            lookupName = name;
+        }
+    }
+    display.innerHTML = lookupName;
+}
 
 var display = document.getElementById("display");
